@@ -1,0 +1,165 @@
+size(550,700);
+background(246,242,217);
+noStroke();
+fill(206,206,206);
+rect(50,70,440,570);
+
+//FACE lines 
+stroke(193,171,82);
+line(275,90,275,145); //vertical line that I will use as my main reference point
+strokeWeight(4);
+stroke(255,239,213);
+line(275,145,422,292);//line connected to vertical ('center' diagonal)
+//lines right of 'center' diagonal
+line(320,155,430,265);
+line(370,175,412,217);
+//lines left of 'center' diagonal
+line(250,155,430,335);
+line(215,170,435,390);
+line(175,190,415,430);
+line(140,220,385,465);
+line(120,250,360,490);
+line(120,305,325,510);
+line(125,350,300,525);
+line(130,400,250,520);
+line(140,440,210,510);
+//NECK
+line(210,510,175,570);// diagonal parrallel lines
+line(250,520,215,580);
+line(300,525,265,585);
+line(360,490,325,550);
+line(325,550,290,610);
+
+strokeWeight(1);
+//EYES
+fill(255);
+noStroke();
+ellipse(220,290,75,30);//white of the eye
+ellipse(360,290,75,30);
+triangle(330,281,330,299,320,290);// triangles to shape corners of the eyes
+triangle(390,281,390,299,405,290);
+triangle(249,281,249,299,259,290);
+triangle(190,281,190,299,175,290);
+fill(119,89,17);
+stroke(0);
+ellipse(215,290,30,30);//color of the eye
+ellipse(355,290,30,30);
+fill(0);
+ellipse(215,290,17,17);//the pupil
+ellipse(355,290,17,17);
+stroke(80,56,2);
+line(255,275,245,270);//eyelids (left)
+line(245,270,225,268);
+line(225,268,200,270);
+line(200,270,185,275);
+line(185,275,175,280);
+line(325,275,335,270);//right
+line(335,270,355,268);
+line(355,268,380,270);
+line(380,270,395,275);
+line(395,275,405,280);
+
+
+line(259,285,245,278);//outline of top eye (left)
+line(245,278,225,275);
+line(225,275,200,277);
+line(200,277,185,282);
+line(185,282,175,287);
+
+line(320,285,335,278);//outline of top eye (right)
+line(335,278,355,275);
+line(355,275,380,277);
+line(380,277,395,282);
+line(395,282,405,287);
+
+//EYEBROWS
+noStroke();
+fill(119,89,17); 
+rect(330,250,75,10); //right
+triangle(405,250,405,260,420,263);
+rect(174,250,75,10);//left
+triangle(174,250,174,260,159,263);
+
+//HAIR
+stroke(0);
+strokeWeight(4);
+stroke(193,171,82);
+line(275,90,250,95); // each hair strand consists of multiple connected lines
+line(250,95,225,105);
+line(225,105,200,115);
+line(200,115,175,125);
+line(175,125,150,140);
+line(150,140,125,155);
+line(125,155,105,175);
+line(105,175,90,200);
+line(90,200,70,350);
+line(70,350,90,450);
+line(90,450,100,500);
+line(100,500,100,600);
+
+line(90,450,70,600);
+line(385,465,360,600);
+line(140,440,130,575);
+
+line(175,190,140,220);
+line(140,220,120,250);
+line(120,250,120,305);
+line(120,305,125,350);
+line(125,350,130,400);
+line(130,400,140,440);
+
+line(275,145,320,135);
+line(320,135,350,135);
+line(350,135,380,145);
+line(380,145,410,170);
+line(410,170,430,200);
+line(430,200,440,250);
+line(440,250,422,292);
+line(422,292,430,335);
+line(430,335,435,390);
+line(435,390,440,450);
+line(440,450,430,500);
+line(430,500,410,550);
+line(410,550,390,600);
+
+line(430,335,470,450);
+line(470,450,480,520);
+line(480,520,470,600);
+
+//LIPS
+stroke(201,127,144);
+line(280,415,260,405);//top lip (left side)
+line(260,405,210,415);
+
+line(280,415,300,405);//top lip (right side)
+line(300,405,350,415);
+
+line(210,415,260,445);//bottom lip (left side)
+line(350,415,300,445);//bottom lip (right side)
+line(260,445,300,445);//bottom lip (middle)
+
+noStroke();
+fill(201,127,144);
+triangle(260,405,210,415,260,445);//triangles to fill in the lip 
+triangle(300,405,350,415,300,445);
+triangle(300,405,260,445,300,445);
+triangle(260,405,260,445,300,445);
+triangle(300,405,280,415,280,430);
+triangle(280,415,260,405,280,430);
+
+stroke(180,127,144);
+line(350,415,280,425);//middle speration
+line(210,415,280,425);
+
+//NOSE
+
+stroke(119,89,17);
+strokeWeight(2);
+line(330,252,295,275);
+
+line(295,275,320,340);
+line(320,340,330,360);
+line(330,360,330,370);
+line(330,370,320,375);
+line(320,375,290,375);
+line(290,375,280,365);
