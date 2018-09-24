@@ -1,0 +1,253 @@
+//import ddf.minim.*;
+//import ddf.minim.analysis.*;
+//import ddf.minim.effects.*;
+//import ddf.minim.signals.*;
+//import ddf.minim.spi.*;
+//import ddf.minim.ugens.*;
+
+//tried to set up sound for winning scene but was getting an error and so decided to leave it for future improvement
+//Minim minim;
+//AudioPlayer myPlayer; 
+ 
+
+ // ints for the mini white balls
+ int x = 0;
+ int y = 200;
+ int x1 = 250;
+ int y1 = 0;
+ int x2 = 450;
+ int y2 = 20;
+ int x3 = 400;
+
+// speeds of mini white balls
+int xspeed = 5;
+int yspeed = 5;
+int x1speed = 4;
+int y1speed = 4;
+int x2speed = 5;
+int y2speed = 4;
+int x3speed = 5;
+
+int ballx = 30;
+int bally = 30;
+
+
+color blue = color(20,139,234);
+
+
+ 
+void setup(){
+ size(500,500);
+  smooth();
+//minim = new Minim(this);
+//myPlayer = minim.loadFile("SOUND EFFECT TADA.mp3");
+}
+
+void draw(){
+ background(0);
+ 
+ strokeWeight(10);
+ stroke(255);
+ line(0,0,0,500);
+ line(0,0,500,0);
+ line(0,500,500,500);
+ line(500,0,500,500);
+    noStroke();
+
+ fill(19,139,234); //blue triangle
+ triangle(500,500,500,380,380,500);
+   fill(19,139,234);
+
+
+fill(255);
+  ellipse(x,y,10,10); //miniball1
+  ellipse(x,300,10,10); //2
+  ellipse(200,y,10,10); //3
+  ellipse(300,y1,10,10); //4
+  ellipse(150,y1,10,10); //5
+  ellipse(x1,150,10,10); //6
+  ellipse(x2,350,10,10); //7
+  ellipse(x2,220,10,10); //8
+  ellipse(60,y,10,10); //9
+  ellipse(x,60,10,10); //10
+  ellipse(x2,125,10,10); //11
+  ellipse(380,y1,10,10); //12
+  ellipse (x3,80,10,10); //13
+ 
+  x = x + xspeed;
+  y = y + yspeed;
+  x1 = x1 + x1speed;
+  y1 = y1 + y1speed;
+  x2 = x2 + x2speed;
+  y2 = y2 + y2speed;
+  x3 = x3 + x3speed;
+  
+if (x >= width || x <= 0){
+  xspeed = xspeed * -1;
+}
+else if (y >= height || y <= 0){
+  yspeed = yspeed * -1;
+}
+else if (x1 >= width || x1 <= 0){
+  x1speed = x1speed * -1;
+}
+else if (y1 >= height || y1 < 0){
+  y1speed = y1speed * -1;
+}
+else if (x2 >= width || x2 <= 0){
+  x2speed = x2speed * -1;
+}
+else if (y2 >= height || y2 <= 0){
+  y2speed = y2speed * -1;
+}
+else if (x3 >= width || x3 <= 0){
+  x3speed = x3speed * -1;
+}
+
+//Blue ball 
+stroke(0);
+strokeWeight(0.5);
+fill(blue); //blue
+ellipse(ballx,bally,20,20);
+
+//Progrmming the winning scene (what will happen if they make it to finish line)
+if (ballx >= 440 && bally >= 440){
+ background (0);
+ //smiley face :)
+   strokeWeight(7);
+  ellipse(250, 250, 300 ,300); 
+  fill(0);
+  ellipse(200, 210, 30, 70);
+  fill(0);
+  ellipse(300, 210, 30, 70);
+  fill (255);
+  bezier(150, 295, 200, 370, 300, 370, 350, 295);
+  line(150, 295, 350, 295);
+  
+}
+  
+}
+
+
+void mouseDragged(){
+ 
+  //using distance to drag blue ball
+  float distanceBlue = dist(mouseX, mouseY, ballx, bally);
+  if (distanceBlue < 80){
+  ballx = mouseX;
+  bally = mouseY;
+  }
+  
+  
+  //setting boundaries so blue ball does not go outside of the screen and cannot be dragged across border
+  if (ballx <= 0){
+   ballx = 30;
+   bally = 30;
+  }
+  if (ballx >= width ){
+     ballx = 30;
+     bally = 30;
+  }
+  if ( bally <= 0){
+     ballx = 30;
+     bally = 30;
+  }
+  if (bally >= height){
+     ballx = 30;
+     bally = 30;
+  }
+  
+  
+  // setting up the boundary between the little balls and blue ball (if they collide -> blue ball returns to initial postion)
+    float miniball1 = dist(mouseX,mouseY,x,y);
+  if (miniball1 < 20){
+    ballx = 30;
+    bally = 30;
+
+  }
+  
+   float miniball2 = dist(mouseX,mouseY,x,300);
+  if (miniball2 < 20){
+   ballx = 30;
+    bally = 30;
+ 
+  }
+  
+   float miniball3 = dist(mouseX,mouseY,200,y);
+  if (miniball3 < 20){
+   ballx = 30;
+    bally = 30;
+
+  }
+  
+    float miniball4 = dist(mouseX,mouseY,300,y1);
+  if (miniball4 < 20){
+   ballx = 30;
+    bally = 30;
+
+  }
+  
+   float miniball5 = dist(mouseX,mouseY,150,y1);
+  if (miniball5 < 20){
+   ballx = 30;
+    bally = 30;
+
+  }
+  
+   float miniball6 = dist(mouseX,mouseY,x1,150);
+  if (miniball6 < 20){
+   ballx = 30;
+    bally = 30;
+
+  }
+  
+   float miniball7 = dist(mouseX,mouseY,x2,350);
+  if (miniball7 < 20){
+   ballx = 30;
+    bally = 30;
+
+  }
+  
+   float miniball8 = dist(mouseX,mouseY,x2,220);
+  if (miniball8 < 20){
+   ballx = 30;
+    bally = 30;
+ 
+  }
+  
+   float miniball9 = dist(mouseX,mouseY,60,y);
+  if (miniball9 < 20){
+   ballx = 30;
+    bally = 30;
+  
+  }
+ float miniball10 = dist(mouseX,mouseY,x,60);
+  if (miniball10 < 20){
+   ballx = 30;
+    bally = 30;
+  
+  } 
+  
+  float miniball11 = dist(mouseX,mouseY,x2,125);
+  if (miniball11 < 20){
+   ballx = 30;
+    bally = 30;
+  
+  }
+ 
+  float miniball12 = dist(mouseX,mouseY,380,y1);
+  if (miniball12 < 20){
+   ballx = 40;
+    bally = 40;
+  
+  }
+  
+ float miniball13 = dist(mouseX,mouseY,x3,80);
+  if (miniball13 < 20){
+   ballx = 40;
+    bally = 40;
+  
+  }
+  
+  
+}
